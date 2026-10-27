@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluga Fitness - Aluguel de Aparelhos Fitness</title>
+    <meta name="description" content="Alugue esteira, bicicleta, elíptico e plataforma vibratória por mês. Treine em casa sem comprar aparelho. Peça pelo WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #07090f;
+            --bg-2: #0f131c;
+            --card: #141925;
+            --line: #232a3a;
+            --primary: #ff0404;
+            --primary-hover: #c80000;
+            --text: #f8fafc;
+            --muted: #9aa4b5;
+            --whats: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .titulo {
+            font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .vermelho {
+            color: var(--primary);
+        }
+
+        /* --- FAIXA DO TOPO --- */
+        .faixa {
+            background-color: var(--primary);
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0;
+        }
+
+        .faixa-trilho {
+            display: inline-block;
+            animation: rolar 25s linear infinite;
+        }
+
+        .faixa-trilho span {
+            margin: 0 24px;
+        }
+
+        @keyframes rolar {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* --- MENU --- */
+        .menu {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(7, 9, 15, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .menu .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .menu-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .menu-links a:hover {
+            color: var(--text);
+        }
+
+        .menu-links a.btn {
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 26px;
+            background-color: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 8px 24px rgba(255, 4, 4, 0.35);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-contorno {
+            background-color: transparent;
+            border: 2px solid var(--line);
+            box-shadow: none;
+        }
+
+        .btn-contorno:hover {
+            background-color: var(--card);
+            border-color: var(--text);
+        }
+
+        .btn-whats {
+            background-color: var(--whats);
+            color: #052e16;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whats:hover {
+            background-color: #1fb457;
+        }
+
+        .btn-pequeno {
+            padding: 10px 18px;
+            font-size: 0.85rem;
+        }
+
+        .btn-cheio {
+            width: 100%;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            padding: 90px 0 100px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(255, 4, 4, 0.28), transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(255, 4, 4, 0.12), transparent 40%);
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .selo {
+            display: inline-block;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7.5vw, 6rem);
+            margin-bottom: 22px;
+        }
+
+        .hero p.sub {
+            font-size: 1.2rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin-bottom: 34px;
+        }
+
+        .hero p.sub strong {
+            color: var(--text);
+        }
+
+        .hero-botoes {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-preco {
+            margin-top: 34px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .hero-preco b {
+            font-family: 'Anton', Impact, sans-serif;
+            font-weight: 400;
+            font-size: 2.6rem;
+            color: var(--text);
+        }
+
+        .hero-foto {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            border-radius: 24px;
+            background: linear-gradient(160deg, #1b2130, #0c0f17);
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .hero-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 14px;
+            background-color: #fff;
+        }
+
+        .hero-foto .etiqueta {
+            position: absolute;
+            bottom: -18px;
+            left: -18px;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            transform: rotate(-4deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-foto .etiqueta big {
+            display: block;
+            font-family: 'Anton', Impact, sans-serif;
+            font-weight: 400;
+            font-size: 1.8rem;
+        }
+
+        /* --- SEÇÕES --- */
+        section {
+            padding: 90px 0;
+        }
+
+        .secao-topo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .secao-topo h2 {
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            margin-bottom: 12px;
+        }
+
+        .secao-topo p {
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- POR QUE ALUGAR --- */
+        .motivos {
+            background-color: var(--bg-2);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .motivos-grade {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .motivo {
+            background-color: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 28px 24px;
+        }
+
+        .motivo .icone {
+            font-size: 2rem;
+            margin-bottom: 14px;
+        }
+
+        .motivo h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .motivo p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- APARELHOS --- */
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            position: relative;
+            background-color: var(--card);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 18px 40px rgba(255, 4, 4, 0.18);
+        }
+
+        .card-foto {
+            background-color: #fff;
+            height: 230px;
+            padding: 18px;
+            cursor: pointer;
+        }
+
+        .card-foto img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-foto img {
+            transform: scale(1.06);
+        }
+
+        .destaque {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background-color: var(--primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            border-radius: 999px;
+        }
+
+        .card-body {
+            padding: 22px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .tag {
+            align-self: flex-start;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .card-frase {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .card-rodape {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .price {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 2rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .price small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        /* --- COMO FUNCIONA --- */
+        .passos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            counter-reset: passo;
+        }
+
+        .passo {
+            position: relative;
+            padding: 34px 28px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background-color: var(--card);
+        }
+
+        .passo::before {
+            counter-increment: passo;
+            content: "0" counter(passo);
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 3.4rem;
+            line-height: 1;
+            color: var(--primary);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .passo h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .passo p {
+            color: var(--muted);
+        }
+
+        /* --- CHAMADA FINAL --- */
+        .chamada {
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18), transparent 60%),
+                var(--primary);
+        }
+
+        .chamada h2 {
+            font-size: clamp(2.6rem, 7vw, 5rem);
+            margin-bottom: 16px;
+        }
+
+        .chamada p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            opacity: 0.92;
+        }
+
+        .chamada .btn {
+            background-color: #fff;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+            padding: 18px 34px;
+        }
+
+        .chamada .btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 110px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer .logo {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
+        .whats-flutuante {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 900;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background-color: var(--whats);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+            animation: pulsar 2.2s infinite;
+        }
+
+        .whats-flutuante svg {
+            width: 34px;
+            height: 34px;
+            fill: #fff;
+        }
+
+        @keyframes pulsar {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+            70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- ESTILOS DO MODAL (RESUMO) --- */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background-color: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 480px;
+            width: 100%;
+            max-height: 100%;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            transform: scale(0.85);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 240px;
+            object-fit: contain;
+            background-color: #fff;
+            padding: 16px;
+        }
+
+        .modal-conteudo {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .modal h3 {
+            font-size: 2rem;
+        }
+
+        .modal-preco {
+            font-family: 'Anton', Impact, sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .modal-preco small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .modal p {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 6px;
+        }
+
+        .modal-buttons .btn {
+            flex: 1;
+            padding: 14px 12px;
+        }
+
+        /* --- CELULAR --- */
+        @media (max-width: 900px) {
+            .hero {
+                padding: 50px 0 70px;
+            }
+
+            .hero .wrap {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .hero-foto {
+                max-width: 420px;
+                width: 100%;
+                margin: 0 auto;
+            }
+
+            .motivos-grade {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .passos {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-links a:not(.btn) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .wrap {
+                padding: 0 16px;
+            }
+
+            section {
+                padding: 64px 0;
+            }
+
+            .motivos-grade {
+                grid-template-columns: 1fr;
+            }
+
+            .grade {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-botoes .btn {
+                width: 100%;
+            }
+
+            .hero-foto .etiqueta {
+                left: 50%;
+                transform: translateX(-50%) rotate(-4deg);
+                white-space: nowrap;
+            }
+
+            .modal-buttons {
+                flex-direction: column-reverse;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .menu-links .btn {
+                padding: 9px 12px;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="faixa" aria-hidden="true">
+        <div class="faixa-trilho">
+            <span>⚡ Treine em casa</span><span>🔥 A partir de R$ 159/mês</span><span>💬 Peça pelo WhatsApp</span><span>🚫 Sem academia lotada</span>
+            <span>⚡ Treine em casa</span><span>🔥 A partir de R$ 159/mês</span><span>💬 Peça pelo WhatsApp</span><span>🚫 Sem academia lotada</span>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <div class="wrap">
+            <a href="#topo" class="logo">Aluga<span>Fitness</span> ⚡</a>
+            <div class="menu-links">
+                <a href="#aparelhos">Aparelhos</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#" class="btn btn-pequeno" onclick="chamarWhats(); return false;">Chamar no Whats</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="topo">
+        <div class="wrap">
+            <div>
+                <span class="selo">Aluguel de aparelhos fitness</span>
+                <h1 class="titulo">Para de<br>adiar. <span class="vermelho">Treina<br>em casa.</span></h1>
+                <p class="sub">Não precisa comprar aparelho. <strong>Aluga por mês, treina no seu horário</strong> e mete o shape sem sair de casa.</p>
+                <div class="hero-botoes">
+                    <a href="#aparelhos" class="btn">Escolher meu aparelho</a>
+                    <a href="#" class="btn btn-contorno" onclick="chamarWhats(); return false;">Tirar dúvida no Whats</a>
+                </div>
+                <div class="hero-preco">A partir de <b>R$ 159</b> / mês</div>
+            </div>
+            <div class="hero-foto">
+                <img src="https://static.netshoes.com.br/produtos/06/C62-1328-006/C62-1328-006_zoom1.jpg?ims=1200x" alt="Esteira Semi-Profissional" data-fallback>
+                <div class="etiqueta">Esteira<big>R$ 279/mês</big></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="motivos">
+        <div class="wrap">
+            <div class="secao-topo">
+                <h2 class="titulo">Por que <span class="vermelho">alugar?</span></h2>
+                <p>Simples: você treina e não gasta uma fortuna.</p>
+            </div>
+            <div class="motivos-grade">
+                <div class="motivo">
+                    <div class="icone">💸</div>
+                    <h3>Sem gastar milhares</h3>
+                    <p>Esqueça pagar caro num aparelho. Paga uma mensalidade e pronto.</p>
+                </div>
+                <div class="motivo">
+                    <div class="icone">🏠</div>
+                    <h3>Treino na sua casa</h3>
+                    <p>Sem trânsito, sem fila de aparelho, sem academia lotada.</p>
+                </div>
+                <div class="motivo">
+                    <div class="icone">⏰</div>
+                    <h3>No seu horário</h3>
+                    <p>5 da manhã ou meia-noite. Quem manda no treino é você.</p>
+                </div>
+                <div class="motivo">
+                    <div class="icone">💬</div>
+                    <h3>Direto no WhatsApp</h3>
+                    <p>Escolheu? Chama a gente e resolve tudo numa conversa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Envolvendo a grid na tag principal do HTML5 -->
+    <main>
+        <section id="aparelhos">
+            <div class="wrap">
+                <div class="secao-topo">
+                    <h2 class="titulo">Escolha o <span class="vermelho">seu</span></h2>
+                    <p>Clique no aparelho, veja os detalhes e confirme pelo WhatsApp.</p>
+                </div>
+                <div class="grade" id="gradeAparelhos">
+                    <!-- Os cards são montados pelo script a partir de "detalhesAparelhos" -->
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="motivos">
+            <div class="wrap">
+                <div class="secao-topo">
+                    <h2 class="titulo">Fácil <span class="vermelho">assim</span></h2>
+                    <p>Três passos e você já está treinando.</p>
+                </div>
+                <div class="passos">
+                    <div class="passo">
+                        <h3>Escolha o aparelho</h3>
+                        <p>Veja as opções acima e clique em "Quero esse".</p>
+                    </div>
+                    <div class="passo">
+                        <h3>Chame no WhatsApp</h3>
+                        <p>A mensagem já vai pronta. É só enviar.</p>
+                    </div>
+                    <div class="passo">
+                        <h3>Comece a treinar</h3>
+                        <p>Combine os detalhes com a gente e bora pro treino.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="chamada">
+            <div class="wrap">
+                <h2 class="titulo">Segunda-feira<br>é hoje.</h2>
+                <p>Chega de "começo semana que vem". Chama a gente agora.</p>
+                <a href="#" class="btn" onclick="chamarWhats(); return false;">Quero começar agora</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Estrutura do Modal Oculto -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+            <img id="modalImage" class="modal-img" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'/>" alt="Imagem do Aparelho">
+            <div class="modal-conteudo">
+                <h3 id="modalTitle" class="titulo">Resumo do Equipamento</h3>
+                <div class="modal-preco" id="modalPrice"></div>
+                <p id="modalDescription">Detalhes do aparelho aqui...</p>
+                <div class="modal-buttons">
+                    <button class="btn btn-contorno" onclick="fecharResumo()">Voltar</button>
+                    <button class="btn btn-whats" onclick="confirmarLocacao()">Confirmar no Whats</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="#topo" class="logo">Aluga<span>Fitness</span> ⚡</a>
+        <p>&copy; 2026 Aluga Fitness. Foco no objetivo, parceiro!</p>
+    </footer>
+
+    <a href="#" class="whats-flutuante" onclick="chamarWhats(); return false;" aria-label="Falar com a Aluga Fitness no WhatsApp">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C8.86 3 3.03 8.82 3.03 16c0 2.3.6 4.54 1.74 6.52L3 29l6.65-1.74A12.95 12.95 0 0 0 16.04 29C23.2 29 29 23.18 29 16S23.2 3 16.04 3zm0 23.64c-1.95 0-3.86-.52-5.53-1.52l-.4-.24-3.95 1.03 1.05-3.85-.26-.4A10.6 10.6 0 0 1 5.4 16c0-5.87 4.77-10.64 10.64-10.64 5.86 0 10.62 4.77 10.62 10.64 0 5.87-4.76 10.64-10.62 10.64zm5.83-7.97c-.32-.16-1.89-.93-2.18-1.04-.3-.11-.5-.16-.72.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.9-1.78-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.52-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.14 3.09 1.3 3.3c.16.21 2.25 3.43 5.45 4.81.76.33 1.35.52 1.82.67.76.24 1.46.21 2.01.13.61-.09 1.89-.77 2.15-1.52.27-.74.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37z"/></svg>
+    </a>
+
+    <script>
+        const numeroTelefone = "554491626500";
+        const imagemReserva = 'https://placehold.co/450x250/141925/ff0404?text=Imagem+Indispon%C3%ADvel';
+
+        const detalhesAparelhos = {
+            esteira: {
+                titulo: "Esteira Semi-Profissional",
+                preco: "279,00",
+                frase: "Corra ou caminhe todo dia sem depender do tempo lá fora.",
+                destaque: "Mais completo",
+                descricao: "Ideal para manter o ritmo de corrida ou caminhada diária com excelente amortecimento. Painel digital completo para monitorar seu treino.",
+                foto: "https://static.netshoes.com.br/produtos/06/C62-1328-006/C62-1328-006_zoom1.jpg?ims=1200x"
+            },
+            bike_horizontal: {
+                titulo: "Bicicleta Horizontal",
+                preco: "159,00",
+                frase: "Queime calorias vendo série, sem forçar as costas.",
+                descricao: "Treino super confortável com excelente suporte para a lombar. Perfeito para queimar calorias enquanto assiste a sua série favorita sem forçar as costas.",
+                foto: "https://masar.com.br/wp-content/uploads/2024/11/R300-3.jpg"
+            },
+            bike_spinning: {
+                titulo: "Bicicleta Spinning",
+                preco: "159,00",
+                frase: "Treino pesado de perna e cardio. Para quem gosta de suar.",
+                destaque: "Alta intensidade",
+                descricao: "Treino de alta intensidade com foco em pernas e cardio. Conta com regulagem de carga manual milimétrica e volante de inércia pesado para simular perfeitamente o ciclismo de rua.",
+                foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/f/o/fotos_site_-_bicicleta_spinning_max-ks2_old_design_semsqueeze_2.jpg"
+            },
+            bike_ergometrica: {
+                titulo: "Bicicleta Ergométrica",
+                preco: "159,00",
+                frase: "Clássica e compacta. Cabe em qualquer canto da casa.",
+                descricao: "Clássica, compacta e eficiente. Ótima para fortalecimento muscular dos membros inferiores e melhoria do fôlego no dia a dia.",
+                foto: "https://brudden.vtexassets.com/arquivos/ids/157945/02.bike-v2-perspectiva-traseira.jpg?v=638746375917430000"
+            },
+            eliptico: {
+                titulo: "Elíptico",
+                preco: "169,00",
+                frase: "Corpo todo trabalhando, zero impacto no joelho.",
+                descricao: "Definição total com zero impacto nas articulações. Trabalha membros inferiores e superiores simultaneamente com passada suave e silenciosa.",
+                foto: "https://www.kikos.com.br/media/catalog/product/cache/041e82462066eef1ae3402cf9c4986f8/9/2/9200_0003_dsc_6975.jpg"
+            },
+            plataforma: {
+                titulo: "Plataforma Vibratória",
+                preco: "169,00",
+                frase: "Ativa a circulação e turbina agachamento e flexão.",
+                descricao: "Excelente para ativar a circulação, ajudar na recuperação muscular e potencializar exercícios como agachamentos e flexões usando vibrações ritmadas.",
+                foto: "https://www.kikos.com.br/media/catalog/product/f/o/fotos_site_p201ix_01_1_5.jpg"
+            }
+        };
+
+        const overlay = document.getElementById('modalOverlay');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+        const grade = document.getElementById('gradeAparelhos');
+
+        // Fallback caso o link de fora quebre (mostra uma imagem padrão de erro bonitinha)
+        function usarReserva(img) {
+            img.onerror = function() {
+                this.onerror = null;
+                this.src = imagemReserva;
+            };
+        }
+
+        document.querySelectorAll('img[data-fallback]').forEach(usarReserva);
+
+        // Monta os cards a partir da lista de aparelhos
+        Object.entries(detalhesAparelhos).forEach(([tipo, info]) => {
+            const card = document.createElement('article');
+            card.className = 'card';
+            card.innerHTML = `
+                ${info.destaque ? `<span class="destaque">${info.destaque}</span>` : ''}
+                <div class="card-foto"><img src="${info.foto}" alt="${info.titulo}" loading="lazy"></div>
+                <div class="card-body">
+                    <span class="tag">Cardio</span>
+                    <h3 class="card-title">${info.titulo}</h3>
+                    <p class="card-frase">${info.frase}</p>
+                    <div class="card-rodape">
+                        <p class="price">R$ ${info.preco} <small>/ mês</small></p>
+                        <button class="btn btn-pequeno" aria-label="Alugar ${info.titulo}">Quero esse</button>
+                    </div>
+                </div>`;
+            usarReserva(card.querySelector('img'));
+            card.querySelector('.card-foto').addEventListener('click', () => abrirResumo(tipo));
+            card.querySelector('button').addEventListener('click', () => abrirResumo(tipo));
+            grade.appendChild(card);
+        });
+
+        function abrirResumo(tipo) {
+            const info = detalhesAparelhos[tipo];
+            if (info) {
+                modalTitle.textContent = info.titulo;
+                modalPrice.innerHTML = `R$ ${info.preco} <small>/ mês</small>`;
+                modalDescription.textContent = info.descricao;
+                usarReserva(modalImage);
+                modalImage.src = info.foto;
+                modalImage.alt = `Foto de: ${info.titulo}`;
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Trava o scroll de fundo
+            }
+        }
+
+        function fecharResumo() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Destrava o scroll
+        }
+
+        function abrirWhats(mensagem) {
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${numeroTelefone}&text=${encodeURIComponent(mensagem)}`;
+            // Abre numa aba nova; se o navegador bloquear, abre na mesma aba
+            const novaJanela = window.open(whatsappUrl, '_blank');
+            if (novaJanela) {
+                novaJanela.opener = null;
+            } else {
+                window.location.href = whatsappUrl;
+            }
+        }
+
+        function chamarWhats() {
+            abrirWhats('Opa! Vi o site da Aluga Fitness e quero saber mais sobre o aluguel dos aparelhos.');
+        }
+
+        function confirmarLocacao() {
+            const equipamento = modalTitle.textContent;
+            abrirWhats(`Opa! Gostaria de confirmar o aluguel do(a) ${equipamento}. Bora lá!`);
+            fecharResumo();
+        }
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) fecharResumo();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') fecharResumo();
+        });
+    </script>
+</body>
+</html>
